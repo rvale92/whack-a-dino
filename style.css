@@ -11,45 +11,47 @@
     --secondary-color: #4A90E2;
     --success-color: #4CAF50;
     --danger-color: #ff4444;
-    --background-start: #87CEEB;
-    --background-end: #98FB98;
+}
+
+html {
+    height: 100%;
+    font-size: 16px; /* Base font size */
 }
 
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     min-height: 100vh;
-    min-height: -webkit-fill-available; /* Fix for mobile Safari */
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('assets/background.jpg');
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    margin: 0;
     padding: 10px;
-    overflow-x: hidden;
-    width: 100%;
     position: relative;
+    overflow-x: hidden;
+    background: none;
 }
 
+/* Fixed background */
 body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    right: 0;
+    bottom: 0;
     background-image: url('assets/background.jpg');
     background-size: cover;
-    background-position: center center;
+    background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
+    height: 100vh;
+    width: 100vw;
 }
 
 .game-container {
     text-align: center;
-    padding: clamp(10px, 3vw, 20px);
+    padding: 20px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
@@ -62,9 +64,10 @@ body::before {
 
 h1 {
     color: var(--primary-color);
-    font-size: 2.5rem !important;
+    font-size: 40px;
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .game-info {
@@ -73,14 +76,16 @@ h1 {
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 20px;
-    font-size: 1.5rem !important;
+    font-size: 24px;
     color: var(--secondary-color);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .round-info {
     color: var(--primary-color);
-    font-size: 1.2rem !important;
+    font-size: 20px;
     margin: 10px 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .game-board {
@@ -123,14 +128,15 @@ h1 {
     border: none;
     border-radius: 25px;
     color: white;
-    padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
-    font-size: 1.2rem !important;
+    padding: 15px 30px;
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
     margin-top: 20px;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 #startButton:hover {
@@ -150,7 +156,7 @@ h1 {
     }
 
     .game-container {
-        padding: 10px 5px;
+        padding: 15px;
         border-radius: 15px;
     }
 
@@ -161,19 +167,20 @@ h1 {
     }
 
     h1 {
-        font-size: 2.5rem !important;
+        font-size: 40px;
     }
 
     .game-info {
-        font-size: 1.5rem !important;
+        font-size: 24px;
     }
 
     .round-info {
-        font-size: 1.2rem !important;
+        font-size: 20px;
     }
 
     #startButton {
-        font-size: 1.2rem !important;
+        font-size: 20px;
+        padding: 12px 24px;
     }
 
     .game-board {
@@ -199,12 +206,8 @@ h1 {
 }
 
 @media (max-width: 400px) {
-    body {
-        padding: 5px;
-    }
-
     .game-container {
-        padding: 8px 4px;
+        padding: 10px;
     }
 
     .hole {
@@ -221,10 +224,10 @@ h1 {
 /* Fix for iPhone notch */
 @supports (padding: max(0px)) {
     body {
-        padding-left: max(10px, env(safe-area-inset-left));
-        padding-right: max(10px, env(safe-area-inset-right));
-        padding-top: max(10px, env(safe-area-inset-top));
-        padding-bottom: max(10px, env(safe-area-inset-bottom));
+        padding-left: max(5px, env(safe-area-inset-left));
+        padding-right: max(5px, env(safe-area-inset-right));
+        padding-top: max(5px, env(safe-area-inset-top));
+        padding-bottom: max(5px, env(safe-area-inset-bottom));
     }
 }
 
