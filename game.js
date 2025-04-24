@@ -248,48 +248,33 @@ function startGame() {
     timeLeft = 30;
     currentRound = 1;
     gameRunning = true;
-    scoreDisplay.textContent = '0';
-    timerDisplay.textContent = timeLeft;
-    roundDisplay.textContent = currentRound;
     
-    // Clear any existing celebrations
-    gameContainer.classList.remove('celebrating');
-    celebrationOverlay.classList.remove('show');
-    celebrationOverlay.innerHTML = '';
+    // Clear any existing timer
+    if (timer) clearInterval(timer);
+    // Start the timer
+    timer = setInterval(updateTimer, 1000);
     
     updateStartButton();
-    
-    // Set initial dinosaur image
     updateDinoImage();
-    
-    timer = setInterval(updateTimer, 1000);
     peep();
 }
 
 function endGame() {
     gameRunning = false;
-    clearInterval(timer);
+    // Clear the timer
+    if (timer) clearInterval(timer);
     clearTimeout(peepInterval);
     
-    // Clear any existing celebrations
-    gameContainer.classList.remove('celebrating');
-    celebrationOverlay.classList.remove('show');
-    celebrationOverlay.innerHTML = '';
+    updateStartButton();
     
+    // Reset game state
     dinos.forEach(dino => {
         dino.classList.remove('up');
         dino.classList.remove('bonked');
     });
     
-    const finalSuccessRate = Math.round(successRate * 100);
-    const gameOverMessage = currentRound === TOTAL_ROUNDS 
-        ? `Congratulations! You completed all ${TOTAL_ROUNDS} rounds!\nFinal Score: ${score}\nSuccess Rate: ${finalSuccessRate}%`
-        : `Game Over at Round ${currentRound}!\nFinal Score: ${score}\nSuccess Rate: ${finalSuccessRate}%\nYou need 60% success rate to advance!`;
-    
-    alert(gameOverMessage);
-    currentRound = 1;
-    roundDisplay.textContent = currentRound;
-    updateStartButton();
+    // Show game over message with final score
+    alert(`Game Over!\nFinal Score: ${score}`);
 }
 
 // Make sure event listeners are attached
