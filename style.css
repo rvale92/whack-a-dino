@@ -173,16 +173,12 @@ h1 {
 
 @keyframes confetti {
     0% {
+        transform: translateY(-20vh) rotate(0);
         opacity: 1;
-        transform: translateY(-20vh) rotate(0) scale(0);
-    }
-    10% {
-        opacity: 1;
-        transform: translateY(-15vh) rotate(45deg) scale(1);
     }
     100% {
+        transform: translateY(100vh) rotate(720deg);
         opacity: 0;
-        transform: translateY(100vh) rotate(720deg) scale(0.5);
     }
 }
 
@@ -194,14 +190,11 @@ h1 {
     height: 100vh;
     pointer-events: none;
     z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    display: none;
 }
 
 .celebration-overlay.show {
-    opacity: 1;
-    visibility: visible;
+    display: block;
 }
 
 .confetti {

@@ -243,6 +243,12 @@ function startGame() {
     scoreDisplay.textContent = '0';
     timerDisplay.textContent = timeLeft;
     roundDisplay.textContent = currentRound;
+    
+    // Clear any existing celebrations
+    gameContainer.classList.remove('celebrating');
+    celebrationOverlay.classList.remove('show');
+    celebrationOverlay.innerHTML = '';
+    
     updateStartButton();
     
     // Set initial dinosaur image
@@ -256,6 +262,11 @@ function endGame() {
     gameRunning = false;
     clearInterval(timer);
     clearTimeout(peepInterval);
+    
+    // Clear any existing celebrations
+    gameContainer.classList.remove('celebrating');
+    celebrationOverlay.classList.remove('show');
+    celebrationOverlay.innerHTML = '';
     
     dinos.forEach(dino => {
         dino.classList.remove('up');
@@ -273,5 +284,11 @@ function endGame() {
     updateStartButton();
 }
 
-dinos.forEach(dino => dino.addEventListener('click', bonk));
-startButton.addEventListener('click', startGame); 
+// Make sure event listeners are attached
+document.addEventListener('DOMContentLoaded', () => {
+    dinos.forEach(dino => dino.addEventListener('click', bonk));
+    startButton.addEventListener('click', startGame);
+    
+    // Set initial dinosaur image
+    updateDinoImage();
+}); 
