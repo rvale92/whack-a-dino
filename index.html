@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Dino!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="celebration-overlay"></div>
+    <div class="game-container">
+        <h1>Whack-a-Dino!</h1>
+        <div class="game-info">
+            <div class="score">Score: <span id="score">0</span></div>
+            <div class="timer">Time: <span id="timer">60</span>s</div>
+        </div>
+        <div class="round-info">Round: <span id="round">1</span>/25</div>
+        <div class="game-board">
+            <div class="hole" data-index="0"><div class="dino"></div></div>
+            <div class="hole" data-index="1"><div class="dino"></div></div>
+            <div class="hole" data-index="2"><div class="dino"></div></div>
+            <div class="hole" data-index="3"><div class="dino"></div></div>
+            <div class="hole" data-index="4"><div class="dino"></div></div>
+            <div class="hole" data-index="5"><div class="dino"></div></div>
+            <div class="hole" data-index="6"><div class="dino"></div></div>
+            <div class="hole" data-index="7"><div class="dino"></div></div>
+            <div class="hole" data-index="8"><div class="dino"></div></div>
+        </div>
+        <button id="startButton">Start Game!</button>
+    </div>
+    <audio id="roarSound" src="assets/dino-roar.mp3"></audio>
+    <audio id="cheersSound" src="assets/cheers.mp3"></audio>
+    <script src="game.js"></script>
+</body>
+</html> 

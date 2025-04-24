@@ -1,0 +1,13 @@
+Required assets:
+
+1. baby-trex.png
+- A cute cartoon baby T-Rex image
+- Transparent background
+- Recommended size: 80x80 pixels
+- Should be kid-friendly and not scary
+
+2. dino-roar.mp3
+- A cute, not-too-scary dinosaur roar sound effect
+- Duration: 0.5-1 second
+- Should be kid-friendly
+- Format: MP3 
