@@ -33,20 +33,20 @@ const difficultySettings = {
 
 // Round images array
 const roundImages = [
-    'assets/round images/dinosaur-46271_640.png',
-    'assets/round images/cartoon-1295929_640.png',
-    'assets/round images/dinosaur-46275_1280.png',
-    'assets/round images/ai-generated-8827035_640.png',
-    'assets/round images/red-44844_1280.png',
-    'assets/round images/ai-generated-8675001_640.png',
-    'assets/round images/back-44831_640.png',
-    'assets/round images/blue-44845_640.png',
-    'assets/round images/dinosaur-45639_640.png',
-    'assets/round images/dinosaur-7761348_640.png',
-    'assets/round images/dinosaur-307869_640.png',
-    'assets/round images/dinosaur-9552190_640.png',
-    'assets/round images/Dino.png',
-    'assets/round images/dinosaur-oil-painting-8336922_640.png'
+    'assets/Round Images/dinosaur-46271_640.png',
+    'assets/Round Images/cartoon-1295929_640.png',
+    'assets/Round Images/dinosaur-46275_1280.png',
+    'assets/Round Images/ai-generated-8827035_640.png',
+    'assets/Round Images/red-44844_1280.png',
+    'assets/Round Images/ai-generated-8675001_640.png',
+    'assets/Round Images/back-44831_640.png',
+    'assets/Round Images/blue-44845_640.png',
+    'assets/Round Images/dinosaur-45639_640.png',
+    'assets/Round Images/dinosaur-7761348_640.png',
+    'assets/Round Images/dinosaur-307869_640.png',
+    'assets/Round Images/dinosaur-9552190_640.png',
+    'assets/Round Images/Dino.png',
+    'assets/Round Images/dinosaur-oil-painting-8336922_640.png'
 ];
 
 function getRandomTime(min, max) {
