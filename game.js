@@ -100,14 +100,22 @@ function peep() {
 }
 
 function bonk(e) {
-    if (!e.isTrusted || !gameRunning) return;
+    if (!gameRunning) return;
+    
+    // Prevent default behavior for touch events
+    if (e.type === 'touchstart') {
+        e.preventDefault();
+    }
+    
+    // Check if the event is trusted (not programmatically triggered)
+    if (!e.isTrusted) return;
     
     score++;
     this.parentNode.classList.remove('up');
     this.classList.add('bonked');
     
     roarSound.currentTime = 0;
-    roarSound.play();
+    roarSound.play().catch(error => console.log('Audio play failed:', error));
     
     setTimeout(() => this.classList.remove('bonked'), 300);
     scoreDisplay.textContent = score;
@@ -286,9 +294,37 @@ function endGame() {
 
 // Make sure event listeners are attached
 document.addEventListener('DOMContentLoaded', () => {
-    dinos.forEach(dino => dino.addEventListener('click', bonk));
+    // Add both click and touch events for dinos
+    dinos.forEach(dino => {
+        dino.addEventListener('click', bonk);
+        dino.addEventListener('touchstart', bonk, { passive: false });
+    });
+    
+    // Add both click and touch events for start button
     startButton.addEventListener('click', startGame);
+    startButton.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        startGame();
+    }, { passive: false });
+    
+    // Prevent double-tap zoom on game container
+    gameContainer.addEventListener('touchstart', (e) => {
+        if (e.target.classList.contains('dino') || e.target.id === 'startButton') {
+            return;
+        }
+        e.preventDefault();
+    }, { passive: false });
     
     // Set initial dinosaur image
     updateDinoImage();
+    
+    // Initialize audio
+    [roarSound, cheersSound].forEach(sound => {
+        sound.load();
+        // Try to play and immediately pause to enable audio on iOS
+        sound.play().then(() => {
+            sound.pause();
+            sound.currentTime = 0;
+        }).catch(() => {});
+    });
 }); 
