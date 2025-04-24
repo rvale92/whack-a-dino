@@ -10,7 +10,7 @@ const gameContainer = document.querySelector('.game-container');
 const celebrationOverlay = document.querySelector('.celebration-overlay');
 
 let score = 0;
-let timeLeft = 45;
+let timeLeft = 30;
 let gameRunning = false;
 let lastHole;
 let timer;
@@ -204,7 +204,7 @@ function startNextRound() {
     setTimeout(() => {
         currentRound++;
         roundDisplay.textContent = currentRound;
-        timeLeft = 45;
+        timeLeft = 30;
         score = 0;
         dinosAppeared = 0;
         scoreDisplay.textContent = '0';
@@ -245,7 +245,7 @@ function startGame() {
     
     score = 0;
     dinosAppeared = 0;
-    timeLeft = 45;
+    timeLeft = 30;
     currentRound = 1;
     gameRunning = true;
     scoreDisplay.textContent = '0';
