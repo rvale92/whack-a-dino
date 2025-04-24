@@ -19,6 +19,10 @@ A fun, dinosaur-themed version of the classic Whack-a-Mole game, perfect for kid
 4. Complete each 45-second round with at least 60% accuracy to advance
 5. Try to complete all 25 rounds!
 
+## 🎮 Play Now!
+
+Play the game directly at: [https://rvale92.github.io/whack-a-dino/](https://rvale92.github.io/whack-a-dino/)
+
 ## 🛠️ Technologies Used
 
 - HTML5
@@ -27,13 +31,20 @@ A fun, dinosaur-themed version of the classic Whack-a-Mole game, perfect for kid
 - Custom SVG backgrounds
 - Web Audio API
 
-## 🚀 Getting Started
+## 🚀 Local Development
 
-1. Clone the repository
-2. Open index.html in your web browser
-3. Start playing!
+1. Clone the repository:
+```bash
+git clone https://github.com/rvale92/whack-a-dino.git
+cd whack-a-dino
+```
 
-Or play directly at [GitHub Pages URL]
+2. Start a local server:
+```bash
+python3 -m http.server 8000
+```
+
+3. Open [http://localhost:8000](http://localhost:8000) in your browser
 
 ## 🎨 Assets
 
@@ -56,4 +67,4 @@ The game includes regular round progression with:
 
 ## 👨‍💻 Development
 
-Created by @rvale92 
+Created by [@rvale92](https://github.com/rvale92) 
